@@ -4,7 +4,7 @@
 #include "enviro.h"
 
 using namespace enviro;
-
+/*bullets2 setting*/
 class Bullet2Controller : public Process, public AgentInterface {
 
     public:
@@ -17,7 +17,7 @@ class Bullet2Controller : public Process, public AgentInterface {
     }
 
     void start() {}
-
+/*how long would the bullet lasts*/
     void update() {
         if ( counter++ > 12 ) {
             remove_agent(id());

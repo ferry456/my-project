@@ -10,7 +10,7 @@ class Player2Controller : public Process, public AgentInterface {
 
     public:
     Player2Controller() : Process(), AgentInterface(), v(0), omega(0), firing2(false), alive(true),hp(1) {}
-
+/*the player2's controller how the player2 move and shoot bullets*/
     void init() {
         watch("keydown", [&](Event &e) {
             auto k = e.value()["key"].get<std::string>();
@@ -44,12 +44,12 @@ class Player2Controller : public Process, public AgentInterface {
                   omega = 0;
             } 
         });
-
+/*player2 's hp would reduced by 1 when hitten by other*/
         notice_collisions_with("Bullet1", [&](Event &e) {
             hp--;
         });
 
-
+/*player2 would gain extra hp when touched the reinforcement*/
         notice_collisions_with("reinforcement", [&](Event& e) {
             remove_agent(e.value()["id"]);
             hp = 3;
@@ -57,7 +57,7 @@ class Player2Controller : public Process, public AgentInterface {
 
     }
     void start() { }
-
+/*player2 would be destoried when its hp comes to 0*/
     void doom1() {
         alive = false;
         for ( double theta=0; theta < 2 * M_PI; theta += M_PI / 4) {

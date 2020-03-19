@@ -5,7 +5,7 @@
 #include "styles.h"
 
 using namespace enviro;
-
+/*generate the equipment that could provide extra hp for palyers*/
 class reinforcement_genController : public Process, public AgentInterface {
 
     public:
@@ -17,13 +17,14 @@ class reinforcement_genController : public Process, public AgentInterface {
     void start() {
         timer = 0;
     }
+    /*when and where the equipment would show up */
     void update() {
         timer++;
         if(timer == 60){
             Agent& reinforcement = add_agent("reinforcement",  rand()%400 - 200, 
                                             rand()%400 - 200,
                                             0,
-                                            reinforcement_STYLE);     
+                                            reinforcement_STYLE);   /*the equipment would randomly shows on the map*/  
         }
     }
     void stop() {}
