@@ -1,0 +1,6 @@
+{
+    "name": "reinforcement_gen",
+    "type": "invisible",
+    "description": "Replace this string with a description",
+    "controller": "lib/reinforcement_gen.so"
+}
